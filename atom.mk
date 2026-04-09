@@ -14,7 +14,6 @@ LOCAL_LIBRARIES := \
 	gz-math \
 	gz-utils \
 	tinyxml2 \
-	assimp \
 	gdal \
 	freeimage
 
@@ -27,9 +26,11 @@ LOCAL_CMAKE_CONFIGURE_ENV +=\
 	PKG_CONFIG_PATH=$(TARGET_OUT_STAGING)/usr/lib/pkgconfig:$(TARGET_OUT_STAGING)/usr/share/pkgconfig
 
 
-# LOCAL_EXPORT_C_INCLUDES := $(TARGET_OUT_STAGING)/usr/include/ignition/common3
+LOCAL_CXXFLAGS := -std=c++17
 
-# LOCAL_EXPORT_LDLIBS := -lignition-common3
+LOCAL_EXPORT_C_INCLUDES := $(TARGET_OUT_STAGING)/usr/include/gz/common7
+
+LOCAL_EXPORT_LDLIBS := -lgz-common
 
 include $(BUILD_CMAKE)
 
